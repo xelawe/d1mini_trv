@@ -1,5 +1,5 @@
 
-#include "cy_mqtt_v1.h"
+#include "cy_mqtt_v2.h"
 
 
 const char gc_stopic_pos[] PROGMEM = "pos"; // set new position

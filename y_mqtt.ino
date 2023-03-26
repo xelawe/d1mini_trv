@@ -22,7 +22,8 @@ void pub_sens() {
   JsonObject ina = jsondoc.createNestedObject("INA219");
   //
   //  if (gv_mprls_ok) {
-  ina["LoadVoltage"] = (int)(loadVoltage_V);
+  //ina["LoadVoltage"] = (int)(loadVoltage_V);
+  ina["LoadVoltage"] = round1(loadVoltage_V);
   ina["Current"] = (int)(current_mA);
   //  } else {
   //    mprls["Status"] = "ERROR";
@@ -130,4 +131,10 @@ char *get_stopic_ix( int ix ) {
   strcpy_P(gv_sbuffer, (char*)pgm_read_dword(&(gt_stopic[ix])));
   //strcpy_P(gv_buffer, );
   return gv_sbuffer;
+}
+
+// rounds a number to 1 decimal places
+// example: round(3.14159) -> 3.1
+double round1(double value) {
+   return (int)(value * 10 + 0.5) / 10.0;
 }
