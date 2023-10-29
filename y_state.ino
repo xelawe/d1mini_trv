@@ -3,6 +3,7 @@ void state_motor_stop() {
   gv_motor_run = false;
   gv_state = 1;
   gv_pub_sens = true;
+  check_ina219( );
 }
 
 void check_state( ) {
@@ -143,36 +144,37 @@ void check_state( ) {
 
   return;
 
-//  if (current_mA > 30) {
-//    Ventil.setmotor(_STOP);
-//    gv_motor_run = false;
-//  } else {
-//    if (!gv_motor_run) {
-//      if ( gv_motor_dir ) {
-//        Ventil.setmotor(_CCW, 100);
-//        //Ventil.setmotor(_STOP);
-//        gv_motor_dir = false;
-//      } else {
-//        Ventil.setmotor(_CW, 100);
-//        gv_motor_dir = true;
-//      }
-//      gv_motor_run = true;
-//    }
-//  }
-//
-//  if (!gv_motor_run) {
-//    Serial.println("Motor stop");
-//  } else {
-//    if ( gv_motor_dir ) {
-//      Serial.println("Valve opening");
-//    } else {
-//      Serial.println("Valve closing");
-//    }
-//  }
+  //  if (current_mA > 30) {
+  //    Ventil.setmotor(_STOP);
+  //    gv_motor_run = false;
+  //  } else {
+  //    if (!gv_motor_run) {
+  //      if ( gv_motor_dir ) {
+  //        Ventil.setmotor(_CCW, 100);
+  //        //Ventil.setmotor(_STOP);
+  //        gv_motor_dir = false;
+  //      } else {
+  //        Ventil.setmotor(_CW, 100);
+  //        gv_motor_dir = true;
+  //      }
+  //      gv_motor_run = true;
+  //    }
+  //  }
+  //
+  //  if (!gv_motor_run) {
+  //    Serial.println("Motor stop");
+  //  } else {
+  //    if ( gv_motor_dir ) {
+  //      Serial.println("Valve opening");
+  //    } else {
+  //      Serial.println("Valve closing");
+  //    }
+  //  }
 
 }
 
 void check_state_timer_1s() {
+    check_ina219( );
   print_ina219();
   Serial.print("aktuelle Position ");
   Serial.println(gv_act_pos);
