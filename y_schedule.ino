@@ -3,7 +3,7 @@ void check_sched() {
   if (gv_1s) {
     check_state_timer_1s();
 
-    check_window( );
+    //check_window( );
 
     check_ina219( );
     print_ina219();
@@ -13,16 +13,17 @@ void check_sched() {
       Serial.println(gv_act_pos);
     }
 
-    if (gv_pub_sens) {
-      pub_sens();
-      gv_pub_sens = false;
-    }
+    // if (gv_pub_sens) {
+    //   pub_sens();
+    //   gv_pub_sens = false;
+    // }
 
     gv_1s = false;
   }
 
   if (gv_1m) {
-    pub_sens();
+ //   pub_sens();
+     gv_pub_sens = true;
 
     gv_1m = false;
   }
