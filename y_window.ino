@@ -10,10 +10,13 @@ void check_window( ) {
   gv_win1 = digitalRead(D5);
   gv_win2 = digitalRead(D6);
 
-  Serial.print("Window 1: ");
-  Serial.print(gv_win1);
-  Serial.print(", Window 2: ");
-  Serial.println(gv_win2);
+
+  if ( gv_log_mqtt ==  true) {
+    Serial.print("Window 1: ");
+    Serial.print(gv_win1);
+    Serial.print(", Window 2: ");
+    Serial.println(gv_win2);
+  }
 
   gv_pub_sens = true;
   gv_window_changed = false;

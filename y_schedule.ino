@@ -5,6 +5,14 @@ void check_sched() {
 
     check_window( );
 
+    check_ina219( );
+    print_ina219();
+
+    if ( gv_log_mqtt ==  true) {
+      Serial.print("aktuelle Position ");
+      Serial.println(gv_act_pos);
+    }
+
     if (gv_pub_sens) {
       pub_sens();
       gv_pub_sens = false;

@@ -174,10 +174,7 @@ void check_state( ) {
 }
 
 void check_state_timer_1s() {
-    check_ina219( );
-  print_ina219();
-  Serial.print("aktuelle Position ");
-  Serial.println(gv_act_pos);
+  
   switch (gv_state) {
     case 5: // calibration closing
       gv_max_time = gv_max_time + 1;

@@ -9,24 +9,28 @@ void check_ina219( ) {
 
   //  Serial.print("Shunt Voltage [mV]: "); Serial.println(shuntVoltage_mV);
   //  Serial.print("Bus Voltage [V]: "); Serial.println(busVoltage_V);
-//  Serial.print("Load Voltage [V]: ");
-//  Serial.print(loadVoltage_V);
-//  Serial.print(" ");
-//  Serial.print("Current[mA]: ");
-//  Serial.print(current_mA);
-//  Serial.print(" ");
-//  // Serial.print("Bus Power [mW]: "); Serial.println(power_mW);
-//  if (!ina219_overflow) {
-//    Serial.println("Values OK - no overflow");
-//  }
-//  else {
-//    Serial.println("Overflow! Choose higher PGAIN");
-//  }
+  //  Serial.print("Load Voltage [V]: ");
+  //  Serial.print(loadVoltage_V);
+  //  Serial.print(" ");
+  //  Serial.print("Current[mA]: ");
+  //  Serial.print(current_mA);
+  //  Serial.print(" ");
+  //  // Serial.print("Bus Power [mW]: "); Serial.println(power_mW);
+  //  if (!ina219_overflow) {
+  //    Serial.println("Values OK - no overflow");
+  //  }
+  //  else {
+  //    Serial.println("Overflow! Choose higher PGAIN");
+  //  }
   //Serial.println();
 }
 
-void print_ina219(){
-    Serial.print("Load Voltage [V]: ");
+void print_ina219() {
+  if ( gv_log_mqtt == false) {
+    return;
+  }
+  
+  Serial.print("Load Voltage [V]: ");
   Serial.print(loadVoltage_V);
   Serial.print(" ");
   Serial.print("Current[mA]: ");
@@ -89,7 +93,7 @@ void init_ina219() {
   */
   // ina219.setBusRange(BRNG_32); // choose range and uncomment for change of default
 
-  Serial.println("INA219 Current Sensor Example Sketch - Continuous");
+  //Serial.println("INA219 Current Sensor Example Sketch - Continuous");
 
   /* If the current values delivered by the INA219 differ by a constant factor
      from values obtained with calibrated equipment you can define a correction factor.
